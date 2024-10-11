@@ -1,6 +1,6 @@
 # Chip-Tuning
 
-This is the repository for paper [Chip-Tuning: Classify Before Language Models Say](https://arxiv.org/abs/2410.06541) with code and scripts.
+Chip-Tuning is a part of QQ MLLM project and this is the repository for paper [Chip-Tuning: Classify Before Language Models Say](https://arxiv.org/abs/2410.06541) with code and scripts.
 
 ## Setup
 To use and evaluate chip-tuning, you have to install the dependencies by:
