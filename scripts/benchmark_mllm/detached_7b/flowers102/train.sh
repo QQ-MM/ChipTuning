@@ -1,0 +1,31 @@
+python -m transformer_chips.playground.benchmark_mllm.train_detached \
+    --recipe flowers102 \
+    --embedding_path ./data/benchmark_mllm/flowers102/hidden_states/llava-1.5-7b-hf \
+    --chip_path ./model/benchmark_mllm/flowers102_detached/llava-1.5-7b-hf_chips \
+    --out_path ./data/benchmark_mllm/flowers102_detached/llava-1.5-7b-hf \
+    --chip_type linear \
+    --mlp_chip_hidden_dim 4096 \
+    --layer_num 32 \
+    --embedding_dim 4096 \
+    --learning_rate 1e-3 \
+    --weight_decay 0.01 \
+    --train_batch_size 512 \
+    --eval_batch_size 512 \
+    --epoch 500 \
+    --seed 42
+
+CUDA_VISIBLE_DEVICES=0 python -m transformer_chips.playground.benchmark_mllm.train_detached \
+    --recipe flowers102 \
+    --embedding_path ./data/benchmark_mllm/flowers102/hidden_states/llava-1.5-7b-hf \
+    --chip_path ./model/benchmark_mllm/flowers102_detached/llava-1.5-7b-hf_chips \
+    --out_path ./data/benchmark_mllm/flowers102_detached/llava-1.5-7b-hf \
+    --chip_type 2xMLP \
+    --mlp_chip_hidden_dim 4096 \
+    --layer_num 32 \
+    --embedding_dim 4096 \
+    --learning_rate 1e-3 \
+    --weight_decay 0.01 \
+    --train_batch_size 512 \
+    --eval_batch_size 512 \
+    --epoch 500 \
+    --seed 42

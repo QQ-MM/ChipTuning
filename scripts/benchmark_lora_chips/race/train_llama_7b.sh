@@ -1,0 +1,39 @@
+python -m transformer_chips.playground.benchmark_lora_chips.train \
+    --recipe race-m \
+    --chip_path ./model/benchmark_lora_chips/racem/llama_7b_chips \
+    --out_path ./data/benchmark_lora_chips/racem/llama_7b \
+    --figure_path ./data/figures/benchmark_lora_chips/racem/llama_7b \
+    --base_model ./model/Llama-2-7b-hf \
+    --lora_path ./model/lora/racem/llama_7b \
+    --mlp_chip_hidden_dim 256 \
+    --learning_rate 1e-5 \
+    --weight_decay 0.01 \
+    --process_batch_size 8 \
+    --train_batch_size 1 \
+    --eval_batch_size 2 \
+    --epoch 1 \
+    --train_example_limit 20000 \
+    --logging_steps 100 \
+    --draw_accuracy_trends \
+    --seed 42 \
+    --fp16
+
+python -m transformer_chips.playground.benchmark_lora_chips.train \
+    --recipe race-h \
+    --chip_path ./model/benchmark_lora_chips/raceh/llama_7b_chips \
+    --out_path ./data/benchmark_lora_chips/raceh/llama_7b \
+    --figure_path ./data/figures/benchmark_lora_chips/raceh/llama_7b \
+    --base_model ./model/Llama-2-7b-hf \
+    --lora_path ./model/lora/raceh/llama_7b \
+    --mlp_chip_hidden_dim 256 \
+    --learning_rate 1e-5 \
+    --weight_decay 0.01 \
+    --process_batch_size 8 \
+    --train_batch_size 1 \
+    --eval_batch_size 2 \
+    --epoch 1 \
+    --train_example_limit 20000 \
+    --logging_steps 100 \
+    --draw_accuracy_trends \
+    --seed 42 \
+    --fp16
